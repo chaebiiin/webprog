@@ -1,0 +1,24 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        p[text] { color: gold; }
+        p[text="red"] { color: white; background-color: red; }
+	    p[text~="bb"] { color: white; background-color: orange; }
+	    p[text|="a1"] { color: white; background-color: gold; }
+	    p[text^="img"] { color: white; background-color: green; }
+	    p[text$=".png"] { color: white; background-color: blue; }
+	    p[text*="ong"] { color: white; background-color: purple; }
+    </style>
+</head>
+<body>
+	<p text="hello">모든 텍스트</p>
+	<p text="red">텍스트 매칭 속성</p>
+	<p text="aa bb cc">리스트 매칭 속성</p>
+	<p text="a1-a2-a3">범위 텍스트 매칭 속성</p>
+	<p text="img/pic.jpg">텍스트 시작 매칭 속성</p>
+	<p text="img/pic.png">텍스트 끝 매칭 속성</p>
+	<p text="Seongyong Hong">텍스트 패턴 매칭 속성</p>
+	<p text="aa">확인확인확인!</p>
+</body>
+</html>

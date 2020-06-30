@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JUNE</title>
+</head>
+
+<body>
+    <script>
+        var Calendar = new Date();
+        var day_of_week = ['일', '월', '화', '수', '목', '금', '토'];
+        var month_of_year = ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'];
+
+        var year = Calendar.getFullYear();
+        var month = Calendar.getMonth();
+        var today = Calendar.getDate();
+        var weekday = Calendar.getDay();
+
+        Calendar.setDate(1);
+        
+        var DAYS_OF_WEEK = 7;
+        var DAYS_OF_MONTH = 31;
+        var str;
+
+        var TR_start = "<tr>";
+        var TR_end = "</tr>";
+
+        var TD_week_start = "<td class='week'>";
+        var TD_blank_start = "<td class='blank'>";
+        var TD_today_start = "<td class='today'>";
+        var TD_day_start = "<td class='day'>";
+        var TD_saturday_start = "<td class='saturday'>";
+        var TD_sunday_start = "<td class='sunday'>";
+        var TD_end = "</td>";
+        
+        str = "<table width = 500px border=1 cellspacing=0 bordercolor=bbbbbb><tr><td style='text'" 
+
+        str += TR_start;
+        for (var i = 0; i < DAYS_OF_WEEK; ++i) {
+            str += TD_week_start + day_of_week[i] + TD_end;
+        }
+        str += TR_end;
+
+        for (var i = 0; i < DAYS_OF_MONTH; ++i) {
+            if (Calendar.getDate() > i) {
+                var day = Calendar.getDate();
+                var weekday = Calendar.getDay();
+                if (day == today) {
+                    str += TD_today_start + day + TD_end;
+                }
+                else {
+                    switch (weekday) {
+                        case 0:
+                            str += TD_sunday_start + day + TD_end;
+                            break;
+                        case 6:
+                            str += TD_saturday_start + day + TD_end;
+                            str += TR_end;
+                            break;
+                        default:
+                            str += TD_day_start + day + TD_end;
+                            break;
+                    }
+                }
+            }
+            Calendar.setDate(Calendar.getDate() + 1);
+        }
+        str += "</tale></td></tr></table>";
+        document.write(str);
+
+    </script>
+</body>
+
+</html>

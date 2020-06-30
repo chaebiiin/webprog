@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function sum(a, b) {
+            return a + b;
+        }
+
+        var result = sum(10, 20);
+        console.log("result : " + result);
+
+        result = sum(10, " HELLO");
+        console.log("result : " + result);
+        window.alert(result); 
+        
+        var fnc = function (a, b) {
+            return a * b;
+        }
+        console.log(fnc(2,3));
+        
+
+        var fnc2 = function(){
+            document.write("hello");
+        }
+        fnc2();
+        document.write("<br>");
+
+        (function() {
+            document.write("hello, world");
+        })();
+
+    </script>
+</body>
+
+</html>

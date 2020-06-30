@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var num = 6;
+        if(num)
+        console.log("5보다 크다.");
+        else 
+        console.log("5보다 작다.");
+        // while(num) {
+        //     document.write('num : ' + num-- + '입니다.'+'<br>');
+        //     if(num<3)
+        //     break;
+        // }
+    //  var x,y;
+    //  for(x=2; x<=9; x++){
+    //      document.write("<b> -----"+ x+"단--------</b>" +"<br>");
+    //      for(y=1; y<9; y++){
+    //          document.write(x + "X" + y + "="+ (x *y) + "<br>");
+        
+    //      }
+       
+    //  } 
+    function gugudan(x) {
+        var y =1;
+        while(x) {
+        document.write(x + "X" + y + "="+ (x *y) + "<br>");
+        y++;
+        if(y >9)
+        return;
+    }
+}
+      x= 2;
+    while(num){
+        gugudan(x++);
+        if(x>9)
+        break;
+    }
+    </script>
+</body>
+</html>
