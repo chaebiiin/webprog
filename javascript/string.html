@@ -28,6 +28,23 @@
         console.log(result);
         document.write('<b>'+result+'</b>');
 
+        str ='LOCATE Please Locate where "locate" occurs!! locate';
+        result = str.toLowerCase();
+
+        result = str.toUpperCase();
+
+        result1 = "HELLO".concat(", World~~", "  Hi!");
+        console.log(result1);
+        window.alert(result1);
+
+        var sp = "BANANA, ORANGE, APPLE".split(",");
+        for(var i=0; i<sp.length; i++) {
+            document.write(sp[i]);
+        }
+        for(i of sp) { //확장 for
+            console.log(i);
+        }
+
     </script>
 </body>
 

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>javascript/array.html</title>
+</head>
+
+<body>
+    <script>
+        var ary = ['H', 'K', 'J'];
+        for (var i = 0; i < ary.length; i++) {
+            console.log(ary[i]);
+        }
+        ary[0] = 'hyuk';
+        ary[1] = 'sik';
+        ary[2] = 'leo'
+
+        for (name of ary) {
+            console.log(name);
+            document.write(name + "  ");
+        }
+
+        var ary2 = new Array('H', 'K', 'J');
+        var person = {
+            lastName: 'Kim',
+            firstName: 'wonsik',
+            age: 28
+        }
+        console.log(person.firstName);
+        console.log(person["firstName"]);
+        console.log("-------------------------");
+        for (p in person) {
+            console.log("필드명 : " + p + ", 값은: " + person[p]);
+            document.write("<br>" + "필드명 : " + p + ", 값은: " + person[p] + "</br>");
+        }
+
+        var fruits = ['BANANA', 'APPLE', 'ORANGE', 'MANGE'];
+        document.write("<ul>");
+        // for (var i=0; i<fruits.length; i++) {
+        for (fruit of fruits) {
+            document.write("<li>" + fruit + "</li>");
+        }
+        document.write("</ul>");
+
+        document.write("<ol>");
+        fruits.forEach(function (a, b, c) {
+            console.log(a, b, c);
+            document.write("<li>" + a + "</li>");
+            document.write("-------------------");
+            document.write("<li>" + b + "</li>");
+            document.write("-------------------");
+            document.write("<li>" + c + "</li>");
+        });
+        document.write("<ol>");
+
+        var persons = [];
+        var person1 = {
+            firstName: "hyuk",
+            lastName: "Han",
+            age: 25
+        }
+        var person2 = {
+            firstName: "hwan",
+            lastName: "Lee",
+            age: 29
+        }
+        var person3 = {
+            firstName: "sik",
+            lastName: "Kim",
+            age: 28
+        }
+        persons[0] = person1;
+        persons.push(person2);
+        persons.push(person3);
+
+        for(p of persons) {
+            console.log(p.firstName, p.lastName, p.age); 
+            document.write("<br>" +p.firstName, p.lastName, p.age+"</br>");
+        }
+        persons.forEach(function(obj, idx, ary){
+
+        });
+
+    </script>
+</body>
+
+</html>
