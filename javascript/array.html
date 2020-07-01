@@ -44,16 +44,28 @@
         }
         document.write("</ul>");
 
+        var fruits = ['BANANA', 'APPLE', 'ORANGE', 'MANGE'];
+
+        document.write("<table border='1'>");
+        fruits.forEach(function (f) {
+            document.write("<tr>");
+            document.write("<td style='background-color:yellow;'>" + f + "</td>");
+            document.write("</tr>");
+        });
+        document.write("</table>");
+
+
         document.write("<ol>");
         fruits.forEach(function (a, b, c) {
             console.log(a, b, c);
-            document.write("<li>" + a + "</li>");
-            document.write("-------------------");
-            document.write("<li>" + b + "</li>");
-            document.write("-------------------");
-            document.write("<li>" + c + "</li>");
+            // document.write("<li>" + a + "</li>");
+            // document.write("-------------------");
+            // document.write("<li>" + b + "</li>");
+            // document.write("-------------------");
+            // document.write("<li>" + c + "</li>");
         });
         document.write("<ol>");
+
 
         var persons = [];
         var person1 = {
@@ -74,14 +86,35 @@
         persons[0] = person1;
         persons.push(person2);
         persons.push(person3);
-
-        for(p of persons) {
-            console.log(p.firstName, p.lastName, p.age); 
-            document.write("<br>" +p.firstName, p.lastName, p.age+"</br>");
+        for (p of persons) {
+            console.log(p.firstName, p.lastName, p.age);
+            // document.write("<br>" +p.firstName, p.lastName, p.age+"</br>");
         }
-        persons.forEach(function(obj, idx, ary){
+        document.write("<table border='1'>");
+        document.write("<tr>");
+        for (f in person1) {
+            document.write("<th>" + f + "</th>");
+        }
+        document.write("</tr>");
+        persons.forEach(showTable);
+        document.write("</table>");
 
-        });
+        // {
+        //     document.write("<tr>");
+        //     document.write("<td style='background-color: navy;'>" + elm.firstName + "</td><td>"
+        //                          + elm.lastName + "</td><td>"
+        //                         + elm.age + "</td>")
+        //     document.write("<tr>");
+        // });
+
+
+        function showTable(elm) {
+            document.write("<tr>");
+            document.write("<td style='background-color: pink;'>" + elm.firstName + "</td><td>"
+                + elm.lastName + "</td><td>"
+                + elm.age + "</td>")
+            document.write("<tr>");
+        }
 
     </script>
 </body>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>javascript/arraySort.html</title>
+</head>
+
+<body>
+    <script>
+        var persons = [];
+        var person1 = {
+            firstName: "hyuk",
+            lastName: "Han",
+            age: 25
+        }
+        var person2 = {
+            firstName: "hwan",
+            lastName: "Lee",
+            age: 29
+        }
+        var person3 = {
+            firstName: "sik",
+            lastName: "Kim",
+            age: 28
+        }
+
+        var persons = ["Han", "Jung", "Kim", "Lee"];
+        persons1 = [20, 12, 1, 100, 10];
+
+
+        persons1.sort(function (a, b) {
+            // return a-b;
+            return b - a;
+        });
+
+        persons = [person1, person2, person3];
+        persons.sort(function (a, b) {
+            // if (a.age > b.age)
+            //     return -1;
+            // else if (a.age < b.age)
+            //     return 1;
+            // else
+            //     return 0;
+            // return a.age - b.age;
+            if (a.lastName > b.lastName)
+                return 1;
+            else if (a.lastName < b.lastName)
+                return -1;
+            else
+                return 0;
+        });
+
+        for (person of persons) {
+            console.log(person);
+            document.write("<p>" + person.lastName + ", " + person.firstName + ", " + person.age + "</p>");
+        }
+    </script>
+</body>
+
+</html>

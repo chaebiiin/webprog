@@ -5,6 +5,64 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JUNE</title>
+    <style>
+        .calendar {
+            width: 100%;
+            overflow: visible;
+            text-align: center;
+            display: table;
+            border-collapse: separate;
+            border-color: grey;
+        }
+        .calendar .week{
+            background-color: #f1f0f0;
+            color: #515151;
+            font-size: 16px;
+            font-weight: bold;
+            border-bottom: 1px solid #d6d6d6;
+            height: 40px;
+        }
+        .calendar .saturday {
+            background-color: white;
+            color: #3a87ad;
+            font-size: 16px;
+            font-weight: bold;
+            height: 55px;
+            border: 2px solid #f1f0f0;
+        }
+        .calendar .sunday {
+            background-color: white;
+            color: crimson;
+            font-size: 16px;
+            font-weight: bold;
+            height: 55px;
+            border: 2px solid #f1f0f0; 
+        }
+        .calendar .today{
+            background-color: white;
+            color: darkblue;
+            font-size: 16px;
+            font-weight: bold;
+            height: 55px;
+            border: 2px solid darkblue;
+        }
+        .calendar .blank{
+            background-color: white;
+            color: brown;
+            font-size: 16px;
+            font-weight: bold;
+            height: 55px;
+            border: 2px solid #f1f0f0;
+        }
+        .calendar .day{
+            background-color: white;
+            color: #515151;
+            font-size: 16px;
+            font-weight: bold;
+            height: 55px;
+            border: 2px solid #f1f0f0;
+        }
+    </style>
 </head>
 
 <body>
@@ -49,6 +107,7 @@
             if (Calendar.getDate() > i) {
                 var day = Calendar.getDate();
                 var weekday = Calendar.getDay();
+                
                 if (day == today) {
                     str += TD_today_start + day + TD_end;
                 }
