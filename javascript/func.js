@@ -15,7 +15,6 @@ num = {
     age: 19
 }
 document.write(typeof num);
-
 var num1, num2, num3;
 num1 = "HELLO";
 num2 = 10;

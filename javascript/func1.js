@@ -43,6 +43,7 @@ function funcTest1(hellofunc) {
 function hellofunc1(){
     // console.log("helloFunc");
     document.getElementById("show").innerHTML = "HELLO!";
+
 }
 // function hellofunc(){
 //     console.log(hellofunc);
