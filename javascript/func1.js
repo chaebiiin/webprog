@@ -33,7 +33,7 @@ function arrayTest() {
 }
 function funcTest(hellofunc) {
     var hello = document.getElementById("show").innerHTML;
-    console.log(hellofunc);
+    console.log(hello);
     hello += " ,World";
     document.getElementById("show").innerHTML = hello;
     

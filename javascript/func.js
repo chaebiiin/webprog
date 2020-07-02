@@ -27,12 +27,12 @@ num3 = "15";
 console.log(num2 == num3);
 var sum = 0;
 for (var i = 0; i < 10; i++) {
-        if(i<5)
+    if (i < 5)
         continue;
 
     sum += i;
 }
-console.log("결과 값은 : " +sum);
+console.log("결과 값은 : " + sum);
 
 var $sum = 10;
 var _sum = 20;
