@@ -102,6 +102,10 @@
             str += TD_week_start + day_of_week[i] + TD_end;
         }
         str += TR_end;
+        
+        for(var i=0; i<Calendar.getDay(); i++){
+            str += TD_blank_start + TD_end;
+        }
 
         for (var i = 0; i < DAYS_OF_MONTH; ++i) {
             if (Calendar.getDate() > i) {

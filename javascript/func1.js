@@ -31,14 +31,20 @@ function arrayTest() {
     var result2 = arraySum(numAry);
     console.log(result2);
 }
-function funcTest(hellofunc) {
+function funcTest() {
+    funcTest1(hellofunc1());
+}
+function funcTest1(hellofunc) {
     var hello = document.getElementById("show").innerHTML;
-    console.log(hello);
-    hello += " ,World";
+    // console.log(hello);
+    hello += " World~~~";
     document.getElementById("show").innerHTML = hello;
-    
 }
-function hellofunc(){
-    console.log(hellofunc);
-    document.getElementById("show").innerHTML =  "HELLO!!";
+function hellofunc1(){
+    // console.log("helloFunc");
+    document.getElementById("show").innerHTML = "HELLO!";
 }
+// function hellofunc(){
+//     console.log(hellofunc);
+//     document.getElementById("show").innerHTML =  "HELLO!!";
+// }

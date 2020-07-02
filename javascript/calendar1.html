@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <p id="cal"></p>
+    <button onclick="showCalendar(2020,8)">Show Cal</button>
+    <script>
+        function showCalendar(year, month) {
+          
+            var today = new Date(year, month - 1, 1);
+            console.log(today.getDay());
+            console.log(new Date(year, month, 0).getDate());
+            var dayAry = ['일', '월', '화', '수', '목', '금', '토'];
+            var $table = document.createElement('table');
+
+            $table.setAttribute('border', '1');
+            var $tr = document.createElement('tr');
+            for (var i = 0; i < dayAry.length; i++) {
+                var $th = document.createElement('th');
+                var $text = document.createTextNode(dayAry[i]);
+                $th.appendChild($text);
+                $tr.appendChild($th);
+            }
+            $table.appendChild($tr);
+
+            $tr = document.createElement('tr');
+            emptyTd = today.getDay();
+            
+            for (var i = 0; i < emptyTd; i++) {
+                var $td = document.createElement('td');
+                $td.appendChild(document.createTextNode(' '));
+                $tr.appendChild($td);
+            }
+            for (var i = 0; i < getDate; i++) {
+                var $text = document.createTextNode(i + 1);
+                var $td = document.createElement('td');
+                $td.appendChild($text);
+                $tr.appendChild($td);
+                if ((i + emptyTd) % 7 == 0) {
+                    $td.setAttribute('style', 'color: crimson;');
+                }
+                if ((i + emptyTd) % 7 == 6) {
+                    $td.setAttribute('style', 'color: #3a87ad;');
+                    $table.appendChild($tr);
+                    $tr = document.createElement('tr');
+                }
+            }
+            $table.appendChild($tr);
+            document.getElementById("cal").appendChild($table);
+        }
+
+    </script>
+
+</body>
+
+</html>
