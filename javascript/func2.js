@@ -3,7 +3,6 @@ function fun1() {
     document.getElementById("show").innerHTML = "HELLO";
 }
 fun1();
-
 var fun2 = function (str) {
     document.getElementById("show").innerHTML = str;
 }
