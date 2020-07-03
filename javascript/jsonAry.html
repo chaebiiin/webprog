@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>javascript/jsonAry.html</title>
+</head>
+<style>
+    #subject {
+        color: cornflowerblue;
+        text-align: center;
+    }
+    th{
+        text-align: center;
+        background-color: darkgray;
+    }
+</style>
+<body>
+    <h2 id="subject">!사원목록!</h2>
+    <p id="employees"></p>
+    <script>
+        var jsonData = [{ "id": 1, "first_name": "Joannes", "last_name": "Glanz", "email": "jglanz0@timesonline.co.uk", "gender": "Female", "ip_address": "159.67.10.19" },
+        { "id": 2, "first_name": "Britney", "last_name": "Connerly", "email": "bconnerly1@trellian.com", "gender": "Female", "ip_address": "225.17.50.101" },
+        { "id": 3, "first_name": "Conan", "last_name": "Gipp", "email": "cgipp2@huffingtonpost.com", "gender": "Male", "ip_address": "167.38.159.239" },
+        { "id": 4, "first_name": "Pauli", "last_name": "Doale", "email": "pdoale3@ning.com", "gender": "Female", "ip_address": "83.151.57.243" },
+        { "id": 5, "first_name": "Wolfie", "last_name": "Loache", "email": "wloache4@digg.com", "gender": "Male", "ip_address": "86.51.206.53" },
+        { "id": 6, "first_name": "Imojean", "last_name": "Gaiter", "email": "igaiter5@photobucket.com", "gender": "Female", "ip_address": "123.30.230.204" },
+        { "id": 7, "first_name": "Starlene", "last_name": "Speares", "email": "sspeares6@is.gd", "gender": "Female", "ip_address": "34.255.124.178" },
+        { "id": 8, "first_name": "Larisa", "last_name": "McPhater", "email": "lmcphater7@scribd.com", "gender": "Female", "ip_address": "15.42.58.87" },
+        { "id": 9, "first_name": "Karoly", "last_name": "Kivlehan", "email": "kkivlehan8@oaic.gov.au", "gender": "Male", "ip_address": "131.196.136.114" },
+        { "id": 10, "first_name": "Corbie", "last_name": "Briston", "email": "cbriston9@cyberchimps.com", "gender": "Male", "ip_address": "254.81.141.109" },
+        { "id": 11, "first_name": "Dulcea", "last_name": "Shord", "email": "dshorda@comsenz.com", "gender": "Female", "ip_address": "180.48.71.219" },
+        { "id": 12, "first_name": "Laney", "last_name": "Yeskov", "email": "lyeskovb@icq.com", "gender": "Female", "ip_address": "122.255.206.120" },
+        { "id": 13, "first_name": "Rosamond", "last_name": "Willett", "email": "rwillettc@ted.com", "gender": "Female", "ip_address": "124.180.105.50" },
+        { "id": 14, "first_name": "Sileas", "last_name": "Enever", "email": "seneverd@behance.net", "gender": "Female", "ip_address": "228.113.3.155" },
+        { "id": 15, "first_name": "Electra", "last_name": "Castro", "email": "ecastroe@unesco.org", "gender": "Female", "ip_address": "218.172.181.79" }]
+
+        // document.write("<table border='1'>");
+        // // $table.setAttribute('border', '1');
+        // // var $tr = document.createElement('tr');
+        // jsonData.forEach(function (o, i, a) {
+
+        //     document.write("<tr>");
+        //         document.write("<td>"+o.id+"</td>");
+        //         document.write("<td>"+o.first_name+"</td>");
+        //         document.write("<td>"+o.gender+"</td>");
+        //         document.write("<td>"+o.email+"</td>");
+        //         document.write("</tr>");        
+        // });
+        // document.write("</table>")
+
+        var titles = ["id", "first_name", "last_name", "email", "gender"];
+
+        var $table = document.createElement("table");
+        $table.setAttribute("border", "1");
+        $table.setAttribute("align", "center");
+        var $tr = document.createElement("tr");
+        for (field of titles) {
+            var $th = document.createElement("th");
+            var $text = document.createTextNode(field.replace("_", " ").toUpperCase());
+            $th.appendChild($text);
+            $tr.appendChild($th);
+        }
+        $table.appendChild($tr);
+        jsonData.forEach(function (o, i, a) {
+            var $tr = document.createElement("tr");
+            for (field of titles) {
+                var $td = document.createElement("td");
+                var $text = document.createTextNode(o[field]);
+                $td.appendChild($text);
+                $tr.appendChild($td);
+            }
+            $table.appendChild($tr);
+        });
+        var employees = document.getElementById("employees");
+        employees.appendChild(document.createElement("h3")
+        .appendChild(document.createTextNode("학생목록")));
+        employees.appendChild($table);
+        // document.getElementById("employees").appendChild($table);
+        
+    </script>
+</body>
+
+</html>

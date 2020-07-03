@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>javascript/arrayMap2.html</title>
+</head>
+
+<body>
+    <select name="gender" id="gender" onchange="onChangeFunc()">
+        <option value="Male">Male</option>
+        <option value="Female">Female</option>
+    </select>
+    <p id="show"></p>
+    <script>
+        var jsonData = [{ "id": 1, "first_name": "Joannes", "last_name": "Glanz", "email": "jglanz0@timesonline.co.uk", "gender": "Female" },
+        { "id": 2, "first_name": "Britney", "last_name": "Connerly", "email": "bconnerly1@trellian.com", "gender": "Female" },
+        { "id": 3, "first_name": "Conan", "last_name": "Gipp", "email": "cgipp2@huffingtonpost.com", "gender": "Male" },
+        { "id": 4, "first_name": "Pauli", "last_name": "Doale", "email": "pdoale3@ning.com", "gender": "Female" },
+        { "id": 5, "first_name": "Wolfie", "last_name": "Loache", "email": "wloache4@digg.com", "gender": "Male" },
+        { "id": 6, "first_name": "Imojean", "last_name": "Gaiter", "email": "igaiter5@photobucket.com", "gender": "Female" },
+        { "id": 7, "first_name": "Starlene", "last_name": "Speares", "email": "sspeares6@is.gd", "gender": "Female" },
+        { "id": 8, "first_name": "Larisa", "last_name": "McPhater", "email": "lmcphater7@scribd.com", "gender": "Female" },
+        { "id": 9, "first_name": "Karoly", "last_name": "Kivlehan", "email": "kkivlehan8@oaic.gov.au", "gender": "Male" },
+        { "id": 10, "first_name": "Corbie", "last_name": "Briston", "email": "cbriston9@cyberchimps.com", "gender": "Male" },
+        { "id": 11, "first_name": "Dulcea", "last_name": "Shord", "email": "dshorda@comsenz.com", "gender": "Female" },
+        { "id": 12, "first_name": "Laney", "last_name": "Yeskov", "email": "lyeskovb@icq.com", "gender": "Female" },
+        { "id": 13, "first_name": "Rosamond", "last_name": "Willett", "email": "rwillettc@ted.com", "gender": "Female" },
+        { "id": 14, "first_name": "Sileas", "last_name": "Enever", "email": "seneverd@behance.net", "gender": "Female" },
+        { "id": 15, "first_name": "Electra", "last_name": "Castro", "email": "ecastroe@unesco.org", "gender": "Female" }]
+        console.log(jsonData);
+        
+        function onChangeFunc() {
+            var newAry = jsonData.map(function (o, i, a) {
+                o.first_name = o.first_name.toUpperCase();
+                return o;
+            });
+
+            var filterAry = newAry.filter(function (o, i) {
+                return o.gender == document.getElementById("gender").value;
+            });
+            console.log(filterAry);
+            var $show = document.getElementById("show");
+            var cnt =  $show.children.length;
+            for(var i=0; i<cnt; i++){
+                $show.removeChild($show.firstChild);
+            }
+            filterAry.forEach(function (a) {
+                var $text = document.createTextNode(a.first_name + ", " + a.gender);
+                var $li = document.createElement("li");
+                $li.appendChild($text);
+                $show.appendChild($li);
+            });
+        }
+    </script>
+</body>
+
+</html>

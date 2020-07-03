@@ -19,5 +19,4 @@ function argsFunc() {
     }
     document.getElementById("show").innerHTML = sum;
 }
-
 outerFunc(argsFunc);
