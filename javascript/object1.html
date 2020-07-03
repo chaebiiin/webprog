@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>javascript/object1.html</title>
+</head>
+<style>
+    #body{
+        text-align: center;
+    }
+    .p {
+        color: crimson;
+        text-align: center;
+    }
+
+</style>
+
+<body id="body">
+    <script>
+        var person = {
+            name: "Han",
+            age: 26,
+            height: 188,
+            eat: function () {
+                console.log("eat");
+            }
+        };
+        var person1 = {
+            name: "Kim",
+            age: 28,
+            height: 184,
+            eat: function () {
+                console.log("eat");
+            }
+        };
+        var persons = [person, person1];
+        // console.log(persons);
+        // document.write(("<p>"+persons[0].name+"</p>");
+        // document.write(("<p>"+persons[0].age+"</p>");
+        // document.write(("<p>"+persons[0]["height"]+"</p>");
+
+        document.write(persons[1].name , persons[1].age);
+        document.write("<br>"+"----------------"+"</br>");
+
+        var strAry = [];
+        strAry.push("Jung");
+        strAry.push("Cha");
+        strAry[strAry.length] = "Lee";
+        for (var i = 0; i < strAry.length; i++) {
+            document.write("<p class=p>" + strAry[i] + "</p>");
+        }
+        strAry.pop();
+        delete strAry[1];
+        for(var i =0; i<strAry.length; i++) {
+            console.log(strAry);
+        }
+        strAry.unshift("Kim");
+        strAry.unshift("Han");
+        console.log("-----------");
+        document.write("------------------");
+        for(var i=0; i<strAry.length; i++) {
+            console.log(strAry[i]);
+            document.write("<p>" + strAry[i] + "</p>");
+
+        }
+        strAry.shift();
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>javascript/funcExample.html</title>
+</head>
+<style>
+    #result{
+        color: crimson;
+        text-align: center;
+    }
+</style>
+<body>
+    <input type="text" id="val1" > +
+    <input type="text" id="val2" > =
+    <input type="text" id="result"><br>
+    <button onclick="elementFunc()">CLICK!</button>
+    <script>
+        var plusfunc = function (a, b) {
+            return a + b;
+        }
+        plusfunc(3,4);
+        console.log(plusfunc(3,4));
+
+        var elementFunc = function() {
+            var val1 = document.getElementById("val1").value;
+            var val2 = document.getElementById("val2").value;
+            if (val2 == "") {
+                val2 =0;
+            }
+            document.getElementById("result").value = parseInt(val1)+parseInt(val2);
+        }
+</script>
+</body>
+</html>

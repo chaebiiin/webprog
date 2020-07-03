@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>javascript/object2.html</title>
+</head>
+<style>
+    .body {
+        text-align: center;
+        color: darkblue;
+    }
+</style>
+
+<body class="body">
+    <script>
+        for (var i = 0; i < 10; i++) {
+            document.write("<p class='col'>" + i + "</p>");
+        }
+        var elmtAry = document.getElementsByClassName("col");
+        // console.log(elmtAry);
+        var newAry = [];
+        for (var i = 0; i < elmtAry.length; i++) {
+            // console.log(elmtAry[i].innerHTML)
+            newAry.push(elmtAry[i].innerHTML);
+        }
+        var sliceAry = newAry.splice(5);
+        document.write("<br>"+"sliceAry=    " + sliceAry);
+
+        var sliceAry1 = newAry.splice(0, 3);
+        document.write("<br>"+"sliceAry1=   " + sliceAry1);
+
+        var totalSlice = sliceAry.concat(sliceAry1);
+        document.write("<br>"+"totalSlice=   " +totalSlice);
+
+        var sum = 0;
+        document.write("<ul>");
+        totalSlice.forEach(callbackFunc)
+        document.write("</ul>");
+        // document.write(sum);
+
+        function callbackFunc(a, b, c) {
+            console.log(a, b);
+            // sum += parseInt(a);
+            document.write("<li> index : " + b + ", vlaue: " + a + "</li>");
+        }
+
+        var callbackFunc = function (a, b, c) {
+            console.log(a, b);
+            sum += parseInt(a);
+        };
+    </script>
+</body>
+</html>

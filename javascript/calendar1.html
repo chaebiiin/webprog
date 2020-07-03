@@ -12,13 +12,18 @@
 
 <body>
     <p id="cal"></p>
+    년도 : <input type="text" id="year"><br>
+    월 : <input type="text" id="month"><br>
     <button onclick="showCalendar(2020,8)">Show Cal</button>
     <script>
-        function showCalendar(year, month) {
-          
+        function showCalendar() {
+            var year = document.getElementById("year").value;
+            var month = document.getElementById("month").value;
+
             var today = new Date(year, month - 1, 1);
-            console.log(today.getDay());
-            console.log(new Date(year, month, 0).getDate());
+            var lastDay = new Date(year, month, 0).getDate();
+            var emptyTd = today.getDay();
+
             var dayAry = ['일', '월', '화', '수', '목', '금', '토'];
             var $table = document.createElement('table');
 
@@ -33,14 +38,12 @@
             $table.appendChild($tr);
 
             $tr = document.createElement('tr');
-            emptyTd = today.getDay();
-            
             for (var i = 0; i < emptyTd; i++) {
                 var $td = document.createElement('td');
                 $td.appendChild(document.createTextNode(' '));
                 $tr.appendChild($td);
             }
-            for (var i = 0; i < getDate; i++) {
+            for (var i = 0; i < lastDay; i++) {
                 var $text = document.createTextNode(i + 1);
                 var $td = document.createElement('td');
                 $td.appendChild($text);
@@ -61,4 +64,5 @@
     </script>
 
 </body>
+
 </html>

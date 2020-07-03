@@ -5,17 +5,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>javascript/javascript.html</title>
-    <script src="func1.js"></script>
+
 </head>
+
 <body>
     <p class="show"></p>
     <p class="show"></p>
     <p id="show"></p>
 
-    <button onclick="sum(10,5)">CLICK</button>
+    <!-- <button onclick="sum(10,5)">CLICK</button>
     <button onclick="mySum()">mySum</button>
-    <button onclick="arrayTest()">arySum</button>
-    <button onclick="funcTest()">funcTest</button>
+    <button onclick="arrayTest()">arySum</button> -->
+    <button onclick="fun2('HELLO')">funcTest</button>
 
     <script>
         console.log(document.getElementsByClassName("show"));
@@ -31,13 +32,14 @@
         function getXvalue() {
             x = 20;
             y = 20;
-            console.log('X1, Y1 : ' + x + "," + y);
+            // console.log('X1, Y1 : ' + x + "," + y);
         }
         getXvalue();
-        
-        console.log('X2, Y2 :  ' + x + "," + y);
+
+        // console.log('X2, Y2 :  ' + x + "," + y);
 
     </script>
+    <script src="func2.js"></script>
 </body>
 
 </html>
