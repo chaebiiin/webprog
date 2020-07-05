@@ -25,7 +25,7 @@
         ID: <input type="text" id="uid"> +
         firstName: <input type="text" id="fname"> +
         lastName: <input type="text" id="lname"> +
-        gender: <input type="text" id="gender">
+        gender: <input type="text" id="add_gender">
         <button id="btn">입력</button>
 
         <p id="employees"></p>
@@ -42,7 +42,7 @@
                 var uid = document.getElementById("uid").value;
                 var fname = document.getElementById("fname").value;
                 var lname = document.getElementById("lname").value;
-                var gender = document.getElementById("gender").value;
+                var gender = document.getElementById("add_gender").value;
                 var $tr = document.createElement("tr");
                 var $td = document.createElement("td");
                 var $button = document.createElement("button");
@@ -85,6 +85,7 @@
                 $button.onclick = function () {
                     for (field of titles) {
                     }
+                    //console.log(titles);
                     window.alert('선택되었습니다.');
                 }
                 $td.appendChild($button);
@@ -154,13 +155,19 @@
 
 
                 $table.appendChild($tr);
+
+                $table.cellPadding = '0px';
+                $table.cellSpacing = '0px';
             });
             // select 부분
             function onChangeFunc() {
+
+                var gender = document.getElementById("gender");
                 var filterAry = jsonData.filter(function (o, i, a) {
                     return o.gender == document.getElementById("gender").value;
                 });
-
+                console.log(gender.selectedIndex);
+                console.log(gender.options[gender.selectedIndex].value);
                 var $employees = document.getElementById("employees");
                 var cnt = $employees.children.length;
                 for (var i = 0; i < cnt; i++) {
@@ -173,7 +180,6 @@
                     $employees.appendChild($li);
                 });
             }
-
             var employees = document.getElementById("employees");
             employees.appendChild($table);
         </script>
