@@ -43,12 +43,13 @@
             $th.appendChild($text);
             $tr.appendChild($th);
         }
-        
+
         document.getElementById(id).remove();
         $tr.setAttribute(id, jsonData.id);
         $button = document.createElement('button');
         $button.setAttribute(id, jsonData);
         $tr.remove();
     </script>
+    
 </body>
 </html>
