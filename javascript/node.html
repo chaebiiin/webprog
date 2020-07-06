@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>javascript/node.html</title>
+</head>
+
+<body>
+    <p id="show">
+    <table border='1' id="tb1">
+        <tr>
+            <th>Empid</th>
+            <th>FirstName</th>
+            <th>LastName</th>
+            <th>event</th>
+        </tr>
+        <tr>
+            <td>101</td>
+            <td>Wonsik</td>
+            <td>Kim</td>
+            <td><button>Save</button></td>
+        </tr>
+        <tr>
+            <td>102</td>
+            <td>Leo</td>
+            <td>Jung</td>
+            <td>
+                <button>delete</button>
+            </td>
+        </tr>
+
+
+    </table>
+    </p>
+    <script>
+        var result = document.getElementById('tb1').childNodes[1];
+        console.log(result);
+        var result2 = document.getElementById('tb1').childNodes[1].childNodes[2];
+        console.log(result2);
+
+        var result3 = document.getElementById('tb1').childNodes[1].childNodes[2].childNodes[3].childNodes[0];
+        console.log(result3);
+        var result4 =document.getElementById('tb1').childNodes[1].childNodes[4].childNodes[7].childNodes[1].childNodes[0].nodeValue ="SAVE"
+        console.log(result4);
+        var result5 = document.getElementById('tb1').childNodes[1].childNodes[4].childNodes[7].childNodes[1].style.color="red"
+        console.log(result5);
+       
+
+    </script>
+</body>
+
+</html>

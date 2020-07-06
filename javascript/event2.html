@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>javascript/event1.html</title>
+    <script>
+        function btnFunc(){
+            var $td = document.createElement("td");
+            var $button = document.createElement("button");
+            $button.innerHTML = "CLICK";
+            $button.setAttribute('class', 'btnClass');
+            $button.onmouseover = function () {
+                this.parentNode.parentNode.style.border = "dashed";
+                this.parentNode.parentNode.style.border = "red";
+                this.parentNode.parentNode.style.color = "red";
+            }
+            $button.onmouseout = function () {
+                this.parentNode.parentNode.style.border = "";
+                this.parentNode.parentNode.style.border = "";
+                this.parentNode.parentNode.style.color = "";
+            }
+
+            $button.onclick = function () {
+                var data = this.parentNode.parentNode.children;
+                window.alert(
+                    "ID  " + data[0].innerHTML + "번" +
+                    '이 선택되었습니다.');
+                // var x = document.forms[];
+            }
+
+            $td.appendChild($button);
+            $tr.appendChild($td);
+            $table.appendChild($tr); 
+        }
+        function bunClassFunc() {
+            var btns = document.getElementsByClassName('btnClass');
+            btns = document.getElementsByClassName('button');
+            for (var i = 0; i < btns.length; i++) {
+                btn[i].onclick = function () {
+                    btns[i].parentNode.parentNode.children;
+                    window.alert(
+                        "ID  " + btns[0].innerHTML + "번" +
+                        '이 선택되었습니다.');
+                }
+                btns[i].onmouseover = function () {
+                    btns[i].parentNode.parentNode.style.border = "dashed";
+                    btns[i].parentNode.parentNode.style.border = "red";
+                    btns[i].parentNode.parentNode.style.color = "red";
+                }
+                btns[i].onmouseout = function () {
+                    btns[i].parentNode.parentNode.style.border = "";
+                    btns[i].parentNode.parentNode.style.border = "";
+                    btns[i].parentNode.parentNode.style.color = "";
+                }
+            }
+        }
+    </script>
+
+    <style>
+        th {
+            background-color: gold;
+            color: darkslateblue;
+            text-align: center;
+        }
+
+        tr {
+            color: darkslateblue;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div align=center>
+        ID: <input type="text" id="uid"> +
+        firstName: <input type="text" id="fname"> +
+        lastName: <input type="text" id="lname"> +
+        gender: <input type="text" id="add_gender">
+        <button id="btn">입력</button>
+        <p id="employees"></p>
+        <select name="gender" id="gender" onchange="onChangeFunc()">
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+        </select>
+    </div>
+    <script>
+        var btn = document.getElementById("btn");
+        btn.onclick = function () {
+            var inputs = document.getElementsByTagName('input');
+            var $tr = document.createElement("tr");
+            for (var i = 0; i < inputs.length; i++) {
+                var $td = document.createElement("td");
+                var $text = document.createTextNode(inputs[i].value);
+                $td.appendChild($text);
+                $tr.appendChild($td);
+            }
+            var $td = document.createElement("td");
+            var $button = document.createElement("button");
+            $button.innerHTML = "CLICK";
+            $button.setAttribute('class', 'btnClass');
+            $button.onmouseover = function () {
+                this.parentNode.parentNode.style.border = "dashed";
+                this.parentNode.parentNode.style.border = "red";
+                this.parentNode.parentNode.style.color = "red";
+            }
+            $button.onmouseout = function () {
+                this.parentNode.parentNode.style.border = "";
+                this.parentNode.parentNode.style.border = "";
+                this.parentNode.parentNode.style.color = "";
+            }
+
+            $button.onclick = function () {
+                var data = this.parentNode.parentNode.children;
+                window.alert(
+                    "ID  " + data[0].innerHTML + "번" +
+                    '이 선택되었습니다.');
+            }
+
+            $td.appendChild($button);
+            $tr.appendChild($td);
+            $table.appendChild($tr); 
+        }
+
+
+        var jsonData = [{ "id": 1, "first_name": "Joannes", "last_name": "Glanz", "gender": "Female" },
+        { "id": 2, "first_name": "Britney", "last_name": "Connerly", "gender": "Female" },
+        { "id": 3, "first_name": "Conan", "last_name": "Gipp", "gender": "Male" },
+        { "id": 4, "first_name": "Pauli", "last_name": "Doale", "gender": "Female" },
+        { "id": 5, "first_name": "Wolfie", "last_name": "Loache", "gender": "Male" },
+        { "id": 6, "first_name": "Imojean", "last_name": "Gaiter", "gender": "Female" },
+        { "id": 7, "first_name": "Starlene", "last_name": "Speares", "gender": "Female" },
+        { "id": 8, "first_name": "Larisa", "last_name": "McPhater", "gender": "Female" },
+        { "id": 9, "first_name": "Karoly", "last_name": "Kivlehan", "gender": "Male" },
+        { "id": 10, "first_name": "Corbie", "last_name": "Briston", "gender": "Male" }]
+
+        var titles = ["id", "first_name", "last_name", "gender"];
+
+        var $table = document.createElement("table");
+        $table.setAttribute("border", "1", "tb1");
+        $table.setAttribute("id", "tb1");
+        var $tr = document.createElement("tr");
+        for (field of titles) {
+            var $th = document.createElement("th");
+            var $text = document.createTextNode(field.replace("_", " ").toUpperCase());
+            $th.appendChild($text);
+            $tr.appendChild($th);
+        }
+        $table.appendChild($tr);
+
+        jsonData.forEach(function (o, i, a) {
+            var $tr = document.createElement("tr");
+            for (field of titles) {
+                var $td = document.createElement("td");
+                var $text = document.createTextNode(o[field]);
+                $td.appendChild($text);
+                $tr.appendChild($td);
+            }
+            $table.appendChild($tr);
+            $td = document.createElement("td");
+            var $button = document.createElement("button");
+            $button.innerHTML = "CLICK";
+            $button.onmouseover = function () {
+                this.parentNode.parentNode.style.border = "dashed";
+                this.parentNode.parentNode.style.border = "red";
+                this.parentNode.parentNode.style.color = "red";
+            }
+            $button.onmouseout = function () {
+                this.parentNode.parentNode.style.border = "";
+                this.parentNode.parentNode.style.border = "";
+                this.parentNode.parentNode.style.color = "";
+            }
+
+            $button.onclick = function () {
+                var data = this.parentNode.parentNode.children;
+                window.alert(
+                    "ID  " + data[0].innerHTML + "번" +
+                    '이 선택되었습니다.');
+            }
+
+            $td.appendChild($button);
+            $tr.appendChild($td);
+            $table.appendChild($tr); 
+
+            $table.cellPadding = '0px';
+            $table.cellSpacing = '0px';
+        });
+        
+
+        // select 부분
+        function onChangeFunc() {
+
+            var gender = document.getElementById("gender");
+            var filterAry = jsonData.filter(function (o, i, a) {
+                return o.gender == document.getElementById("gender").value;
+            });
+            var $employees = document.getElementById("employees");
+            var cnt = $employees.children.length;
+            for (var i = 0; i < cnt; i++) {
+                $employees.removeChild($employees.firstChild);
+            }
+            filterAry.forEach(function (a) {
+                var $text = document.createTextNode(a.first_name + "_ " + a.last_name + ",  " + a.gender);
+                var $li = document.createElement("li");
+                $li.appendChild($text);
+                $employees.appendChild($li);
+            });
+        }
+        var employees = document.getElementById("employees");
+        employees.appendChild($table);
+    </script>
+
+</body>
+
+</html>

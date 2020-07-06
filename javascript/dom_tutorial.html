@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dom Tutorial</title>
+    <style>
+        #bdy {
+            color: blueviolet;
+        }
+    </style>
+</head>
+
+<body id="bdy">
+    <h1>DOM LESSON ONE</h1>
+    <p id="hello">HELLO WORLD!!</p>
+
+    <script>
+        var result = document.getElementById('bdy').childNodes[1].childNodes[0].nodeValue;
+        console.log(result);
+
+        var result2 = document.getElementById('hello').previousSibling.previousSibling;
+        console.log(result2);
+
+        var result3 = document.getElementById('hello').parentNode.id;
+        console.log(result3);
+    </script>
+</body>
+
+</html>
