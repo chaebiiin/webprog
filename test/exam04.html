@@ -9,24 +9,28 @@
 <style>
     #subject {
         color: cornflowerblue;
-        text-align: center;
+        text-align: left;
     }
 
     th {
         text-align: center;
         background-color: darkgray;
     }
-    
+    tr{
+        text-align: center;
+    }
+    #grade{
+        text-align: left;
+    }
 
 </style>
 
 <body>
-    <h2 id="subject">!학생목록!</h2>
-    studentNo: <input type="text" id="no"> +
-    name: <input type="text" id="input_name"> +
-    grade: <input type="text" id="input_grade"> +
-    major: <input type="text" id="input_major"> 
-    <button id="btn">입력</button>
+    <h2 id="subject"> 학생 목록</h2>
+    studentNo: <input type="text" id="no"> + 
+    name: <input type="text" id="input_name"> + <br>
+    grade: <input type="text" id="input_grade"> + 
+    major: <input type="text" id="input_major"> <button id="btn">입력</button>
 
     <p id="students"></p>
     <select name="grade" id="grade" onchange="onChangeFunc()">
@@ -43,11 +47,14 @@
                 var input_name = document.getElementById("input_name").value;
                 var input_grade = document.getElementById("input_grade").value;
                 var input_major = document.getElementById("input_major").value;
+
                 var $tr = document.createElement("tr");
                 var $td = document.createElement("td");
                 var $text = document.createTextNode(no)
                 $td.appendChild($text)
                 $tr.appendChild($td)
+
+                var $td = document.createElement("td");
                 $text = document.createTextNode(input_name)
                 $td.appendChild($text)
                 $tr.appendChild($td)
@@ -107,20 +114,18 @@
             });
 
 
-        // 이 부분 나오질 않음...
         function onChangeFunc() {
-            // console.log(document.getElementById("grade").value);
             var grade = document.getElementById("grade");
             
             var filterAry = jsonData.filter(function (o, i,a) {
                 return o.grade == document.getElementById("grade").value;
+
             });
             var $students = document.getElementById("students");
             var cnt = $students.children.length;
             for (var i = 0; i < cnt; i++) {
                 $students.removeChild($students.firstChild);
             }
-                // console.log(filterAry);
             filterAry.forEach(function (a) {
                 var $text = document.createTextNode(a.name + ",  " + a.grade + ",  " + a.major);
                     var $li = document.createElement("li");

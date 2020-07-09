@@ -7,7 +7,7 @@
     <title>test/exam01.html</title>
 </head>
 <style>
-    #result{
+    #result {
         color: crimson;
         text-align: center;
     }
@@ -15,24 +15,30 @@
 
 <body>
     값1 : <input type="text" id="value1"> +
-    값2 : <input type="text" id="vlaue2"> =
+    값2 : <input type="text" id="value2">
+    <button onclick=" resultFunc()">확인</button>
     결과 : <input type="text" id="result"><br>
-    <button onclick=" resultFunc()">CLICK</button>
+
     <script>
-        var plusfunc = function (a, b) {
-            return a + b;
-        }
 
-        var resultFunc = function () {
+        var resultFunc = function (a, b) {
             var value1 = document.getElementById("value1").value;
-            var vlaue2 = document.getElementById("vlaue2").value;
+            var value2 = document.getElementById("value2").value;
 
-            if (vlaue2 == "") {
-                vlaue2 = 0;
+            var sum = 0;
+
+            for (var i = Number(value1); i <= Number(value2); i++) {
+                sum += i;
+                console.log(sum);
             }
-            document.getElementById("result").value = parseInt(value1) + parseInt(vlaue2);
+
+            document.getElementById("result").value = parseInt(sum);
         }
     </script>
 </body>
 
 </html>
+
+//value1이 value2보다 더 큰 경우
+//value들의 값이 같은 경우
+//value값이 null 일 경우 처리해주는 if문 만들어 보기.
