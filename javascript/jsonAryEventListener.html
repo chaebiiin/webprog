@@ -32,10 +32,11 @@
         { "id": 10, "first_name": "Corbie", "last_name": "Briston", "gender": "Male" }]
 
 
-        var titles = ["id", "first_name", "last_name", "email", "gender", "button"];
+        var titles = ["id", "first_name", "last_name", "gender", "button"];
         var $table = document.createElement("table");
         $table.setAttribute("border", "1");
         $table.setAttribute("align", "center");
+
         var $tr = document.createElement('tr');
         for (field of titles) {
             var $th = document.createElement("th");
@@ -43,13 +44,41 @@
             $th.appendChild($text);
             $tr.appendChild($th);
         }
+        $table.appendChild($tr);
+
+        jsonData.forEach(function (o, i, a) {
+            var $tr = document.createElement("tr");
+            for (field in o) {
+                var $td = document.createElement("td");
+                var $text = document.createTextNode(o[field]);
+                $td.appendChild($text);
+                $tr.appendChild($td);
+                
+            }
+            var $button = document.createElement("button");
+            $button.setAttribute('id', 'btnId');
+            $button.innerHTML = "CLICK";
+            var $td = document.createElement("td");
+            $td.appendChild($button);
+            $tr.appendChild($td);
+            $table.appendChild($tr);
+            
+            $button.onclick = function(){
+                this.parentNode.parentNode.remove();
+            }
+       
+        });
+
+        employees = document.getElementById("employees");
+        employees.appendChild($table);
 
         
-        document.getElementById(id).remove();
-        $tr.setAttribute(id, jsonData.id);
-        $button = document.createElement('button');
-        $button.setAttribute(id, jsonData);
-        $tr.remove();
+        // document.getElementById(btnId).remove();
+        // $tr.setAttribute(id, jsonData.id);
+        // $button = document.createElement('button');
+        // $button.setAttribute(id, jsonData);
+        // $tr.remove();
+
     </script>
 </body>
 </html>

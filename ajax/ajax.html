@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>javascript/ajax.html</title>
+</head>
+
+<body>
+    <h1>Ajax 요청 페이지</h1>
+    <button id="btn">CLICK</button>
+    <script>
+        var btn = document.getElementById('btn');
+        btn.onclick = ajaxFunc;
+
+        function ajaxFunc() {
+            var xhtp = new XMLHttpRequest();
+            xhtp.onreadystatechange = function () {
+                //    console.log('readyState =>' + xhtp.readyState);
+                //    console.log('status =>' + xhtp.status);
+                if (xhtp.readyState == 4 && xhtp.status == '200') {
+                    var data = JSON.parse(xhtp.responseText);
+                    //    console.log(data);
+
+                    // for(var i =0; i<data.length; i++) {
+                    // document.write(data[i].first_name +"<br");
+                    // }
+
+                    data.forEach(function (a, b, c) {
+                        document.write(a.first_name + "<br>");
+                    });
+                }
+            }
+            xhtp.open('get', 'MOCK_DATA.json');
+            xhtp.send();
+        }
+    </script>
+</body>
+</html>
