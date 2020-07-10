@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jquery/add.html</title>
+    <script src="jquery-3.5.1.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            var $table = $('<table />').attr('border', '1');
+            var $th = $('<tr />').append(
+                $('<th />').text('학번'),
+                $('<th />').text('이름'),
+                $('<th />').text('점수'),
+            );
+            $table.append($th);
+            var $tr = $('<tr />').append(
+               $('<td />').text('120524'),
+               $('<td />').text('Kim'),
+               $('<td />').text('90점'),
+               $('<td />').html('<button>확인</button>')
+
+            );
+            $table.append($tr);
+            $('#show').append($table);
+
+
+            // var $table = $('<table />');
+            // $table.attr('border', '1');
+            // var $tr = $('<tr />');
+            // var $td1 = $('<td />').text('120524');
+            // var $td2 = $('<td />').text('Kim');
+            // var $td3 = $('<td />').text('90점');
+            // $tr.append($td1, $td2, $td3);
+            // $table.append($tr);
+            // $('#show').append($table);
+
+
+        });
+    </script>
+</head>
+
+<body>
+    <p id="show"></p>
+</body>
+
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script>
+            $(document).ready(function () {
+                $("button").click(function () {
+                    $("ul li:first").hide();
+                    // var lis = document.querySelectorAll("ul")[0].querySelectorAll('li:first-child');
+                    // for(var i=0; i<lis.length; i++){
+                    // lis[i].style.display = "none";
+                    // }
+                });
+                $('button').eq(1).hover(function(){
+                    $(this).css('color', 'red');
+                },function(){
+                    $(this).css('color', '');
+                })
+
+                $('li').click(function () {
+                    $(this).hide();
+                })
+                $('li').mouseenter(function(){
+                    $(this).css('color', 'blueviolet');
+                })
+                $('li').mouseleave(function(){
+                    $(this).css('color', '');
+                })
+
+            });
+        </script>
+    </head>
+
+<body>
+
+    <p>List 1:</p>
+    <ul>
+        <li>Coffee</li>
+        <li>Milk</li>
+        <li>Tea</li>
+    </ul>
+
+    <p>List 2:</p>
+    <ul>
+        <li>Coffee</li>
+        <li>Milk</li>
+        <li>Tea</li>
+    </ul>
+
+    <button>Click me</button>
+    <button>Try me</button>
+
+</body>
+
+</html>

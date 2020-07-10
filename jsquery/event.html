@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("p").on(
+                {
+                    'click': function () {
+                        $(this).hide();
+                    },
+                    'mouseenter': function () {
+                        $(this).css('color', 'red');
+                    },
+                    'mouseleave': function () {
+                        $(this).css('color', '');
+                    }
+                }
+                );
+                // var person = {
+                //     name: "h",
+                //     age: 20,
+                //     grade: "1학년"
+                // }
+            // $('p').click(function () { });
+            // $('p').mouseover(function () { });
+            // $('p').mouseleave(function () { });
+        });
+    </script>
+</head>
+
+<body>
+
+    <p>If you click on me, I will disappear.</p>
+    <p>Click me away!</p>
+    <p>Click me too!</p>
+
+</body>
+
+</html>
