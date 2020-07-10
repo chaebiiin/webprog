@@ -16,11 +16,33 @@
 <body>
     값1 : <input type="text" id="value1"> +
     값2 : <input type="text" id="value2">
-    <button onclick=" resultFunc()">확인</button>
+    <button id="btn" onclick=" resultFunc()">확인</button>
     결과 : <input type="text" id="result"><br>
 
-    
+
     <script>
+
+        //풀이
+        // document.getElementById("btn").onclick = function () {
+
+        //     // var inputs = document.getElementsByTagName('input');
+        //     // inputs = document.querySelectorAll('body > input');
+        //     // var value1 = inputs[0].value;
+        //     // var value2 = inputs[2].value; 
+
+        //     var value1 = document.getElementById('value1').value;
+        //     var value2 = document.getElementById('value2').value;
+        //     value1 = parseInt(value1);
+        //     value2 = parseInt(value2);
+
+        //     var sum = 0;
+        //     for (var i = value1; i <= value2; i++) {
+        //         sum += i;
+        //     }
+        
+        //     document.getElementById('result').value = sum;
+                // inputs[2].value = sum;
+        // }
 
         var resultFunc = function (a, b) {
             var value1 = document.getElementById("value1").value;
@@ -34,12 +56,12 @@
             }
 
             document.getElementById("result").value = parseInt(sum);
+
+            // value1이 value2보다 더 큰 경우
+            // value들의 값이 같은 경우
+            // value값이 null 일 경우 처리해주는 if문 만들어 보기.
         }
     </script>
 </body>
 
 </html>
-
-//value1이 value2보다 더 큰 경우
-//value들의 값이 같은 경우
-//value값이 null 일 경우 처리해주는 if문 만들어 보기.

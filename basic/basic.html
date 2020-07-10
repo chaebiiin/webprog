@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+
+<body>
+    <h1>HELLO</h1>
+    <h2>HELLO</h2>
+    <h3>HELLO</h3>
+    <h1>HELLO</h1>
+
+    <script>
+        //querySelectorAll 사용하기
+        // var body_h1 = document.querySelectorAll("body > h1");
+
+        // body_h1.forEach(function(o){
+        //     o.onclick = function(){
+        //         o.style.color = "gold";
+        //     }
+        // });
+        // // document.querySelectorAll("body > h1")[0].onclick = function () {
+        // //     this.style.color = "gold";
+        // // };
+        // document.getElementsByTagName('h1')[0].innerHTML = "안녕";
+
+        //구구단~
+        // for (var i = 1; i <= 9; i++) {
+        // document.write(2 + " X " + i + " = " + (2 * i) + "<br>");
+        // console.log
+        // }
+
+        var strAry = [1, 2, 3, 4, 5];
+        var sum = 0;
+        // for(var i=0; i<strAry.length; i++){
+        //     sum +=i;
+        //     }
+
+        // 배열 연습~~~
+        // strAry.push(6);
+        // strAry.push(7);
+        // strAry.forEach(function (o) {
+        //     sum += o;
+        //     document.write("배열의 값은 " + o + ", 누적값 " + sum + "<br>");
+        // });
+        // console.log(sum);
+        var person = {
+            name: "Hong",
+            age: 20,
+            adress: "Deagu"
+        }
+        console.log(person.name);
+        person.name = "Kim";
+        console.log(person.name);
+
+        for(p of person) {
+            console.log(p);
+        }
+        
+</script>
+
+</body>
+
+</html>

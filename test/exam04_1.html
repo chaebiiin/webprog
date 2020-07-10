@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>text/exam04.html</title>
+</head>
+<style>
+    #subject {
+        color: cornflowerblue;
+        text-align: left;
+    }
+
+    th {
+        text-align: center;
+        background-color: darkgray;
+    }
+
+    tr {
+        text-align: center;
+    }
+
+    #grade {
+        text-align: left;
+    }
+</style>
+
+<body>
+    학번<input type="text" id="studentNo">
+    이름<input type="text" id="name">
+    학년<select id="grade">
+        <option value="1">1학년</option>
+        <option value="2">2학년</option>
+        <option value="3">3학년</option>
+        <option value="4">4학년</option>
+    </select>
+    전공<input type="text" id="major">
+    <button id="btn">추가</button>
+    <br>
+    <select id="userGrade">
+        <option value="1">1학년</option>
+        <option value="2">2학년</option>
+        <option value="3">3학년</option>
+        <option value="4">4학년</option>
+    </select>
+    <p id="show"></p>
+    <script>
+        var students = [];
+
+        document.getElementById('btn').onclick = function () {
+            var studentNo = document.getElementById('studentNo').value;
+            var name = document.getElementById('name').value;
+            var grade = document.getElementById('grade').value;
+            var major = document.getElementById('major').value;
+
+
+            var student = {
+                studentNo: studentNo,
+                name: name,
+                grade: grade,
+                major: major
+            }
+            students.push(student);
+
+            var show = document.getElementById("show");
+            var show_li = document.querySelectorAll("#show > li");
+            show_li.forEach(function (o) {
+                o.remove();
+            });
+            students.forEach(function (a) {
+                var $li = document.createElement('li');
+                var $text = document.createTextNode("학번은: "+a.studentNo + ", 이름은 : " + a.name+", 학년은 : "+a.grade);
+                $li.appendChild($text);
+                show.appendChild($li);
+            });
+        }
+
+        document.getElementById('userGrade').onchange = function () {
+            var grade = this.value;
+            var filterStudents = students.filter(function (o) {
+                return o.grade == grade;
+            });
+
+            var show = document.getElementById("show");
+            var show_li = document.querySelectorAll("#show > li");
+            show_li.forEach(function (o) {
+                o.remove();
+            });
+
+            filterStudents.forEach(function (a) {
+                // console.log(a);
+                var $li = document.createElement('li');
+                var $text = document.createTextNode("학번은:  "+a.studentNo + ", 이름은 : " + a.name+", 학년은 : "+a.grade);
+                $li.appendChild($text);
+                show.appendChild($li);
+            });
+        }
+    </script>
+</body>
+</html>

@@ -4,15 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>test/exam02.html</title>
-    <script src="memberRegister.jsp"></script>
+    <!-- <script src="memberRegister.jsp"></script> -->
 </head>
 
 <body>
-    <form id="frm1" action="/action_page.php">
-        User id: <input type="text" name="id" ><br>
-        Password: <input type="text" name="password" ><br>
-        Name: <input type="text" name="name" ><br>
-        Age: <input type="text" name="age" ><br><br>
+    <form id="frm1" action="memberRegister.jsp" method="POST">
+        User id: <input type="text" name="id" >
+        Password: <input type="password" name="password" ><br>
+        Name: <input type="text" name="name" >
+        Age: <input type="text" name="age" >
+
+        <input type="submit" value="전송">
+        <input type="reset" value="취소">
     </form>
     
     <button onclick="clickfunc()">CLICK!</button>

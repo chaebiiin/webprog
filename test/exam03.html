@@ -12,14 +12,20 @@
 </head>
 <body id="dby">
     <div id="div">
+        <p>홍길동</p>
         <p class="name">홍길동1</p>
         <p class="name">홍길동2</p>
     </div>
     <p class="name">홍길동3</p>
     
 <script>
-    var result = document.getElementsByClassName("name").parentNode;
-    console.log(result);
+    //풀이
+    var ps = document.querySelectorAll('div > .name');
+    ps.forEach(function(o,i,a){
+        console.log(o);
+    });
+    // var result = document.getElementsByClassName("name").parentNode;
+    // console.log(result);
 </script>
 </body>
 </html>

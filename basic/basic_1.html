@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        //   var cds = document.getElementsByTagName('artist');
+        // console.log(cds[0].childNodes[0].nodeValue);
+
+        var xhtp = new XMLHttpRequest();
+        xhtp.onreadystatechange = function () {
+            if (xhtp.readyState == 4 && xhtp.status == '200') {
+                showXml(this);
+                }
+            }
+        
+        xhtp.open("get", "cd_catalog.xml");
+        xhtp.send();
+
+        function showXml(xhtp){       
+            var datas = xhtp.responseXML;
+                var cds = datas.getElementsByTagName('CD');
+                for (var i = 0; i < cds.length; i++) {
+                    console.log(cds[i].childNodes[1].childNodes[3]);
+                    document.write(cds[i].childNodes[1].childNodes[0].nodeValue+"<br>");
+                    
+        }
+    }
+    </script>
+</body>
+
+</html>

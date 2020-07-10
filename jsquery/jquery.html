@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jquery/jquery.html</title>
+    <script src="jquery-3.5.1.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("#show").html("5");
+        });
+    </script>
+</head>
+
+<body>
+    <p id="show">show1</p>
+    <p class="show">show2</p>
+    <div class="show">show3</div>
+    <script>
+        // document.getElementById("show").innerHTML = "HELLO";
+        $("#show").html("1");
+        // document.getElementsByClassName("show");
+        $(".show").html("2");
+        // document.getElementsByClassName("show")[0].innerHTML = "안녕, HELLO";
+        $(".show").eq(0).html("3");
+        // document.querySelectorAll("div.show")[0].innerHTML = "world";
+        $("div.show").eq(0).html("4");
+        $(".show").css('color', "blueviolet");
+        document.getElementsByClassName("show")[0].style.color = "gold";
+        document.getElementsByClassName("show")[1].style.color = "blueviolet";
+
+        console.log($('.show'));
+
+
+    </script>
+</body>
+
+</html>
