@@ -46,15 +46,44 @@
 
         var resultFunc = function (a, b) {
             var value1 = document.getElementById("value1").value;
+            console.log(value1);
             var value2 = document.getElementById("value2").value;
-
+            /*
+            var value1 = 0;
+            var value2 = 0;
+            if(document.getElementById("value1").value != "")value1 = document.getElementById("value1").value;
+            if(document.getElementById("value2").value != "")value2 = document.getElementById("value2").value;
+            */
+            value1 = Number(value1);
+            value2 = Number(value2);
             var sum = 0;
+            /*
+            value1 value2 temp
+            30      20     0
+            30      20     20
+            30      30     20
+            20      30     20
+            
+            */
 
-            for (var i = Number(value1); i <= Number(value2); i++) {
-                sum += i;
-                console.log(sum);
+            // value1 = 10;
+            // value2 = 20;
+            if(value1 > value2){
+                var temp = value2;
+                console.log("var temp = value2; => value1 = "+value1+", value2 = "+value2+", temp = "+temp);
+                value2 = value1;
+                console.log("value2 = value1; => value1 = "+value1+", value2 = "+value2+", temp = "+temp);
+                value1 = temp;
+                console.log("value1 = temp; => value1 = "+value1+", value2 = "+value2+", temp = "+temp);
             }
 
+            var str = "";
+            for (var i = value1; i <= value2; i++) {
+                sum += i;
+                str += (str==""?"":"+")+""+i;
+                console.log(str+" = "+sum);
+            }
+            console.table(document.getElementById("result"));
             document.getElementById("result").value = parseInt(sum);
 
             // value1이 value2보다 더 큰 경우

@@ -16,24 +16,26 @@
         text-align: center;
         background-color: darkgray;
     }
-    tr{
+
+    tr {
         text-align: center;
     }
-    #grade{
+
+    #grade {
         text-align: left;
     }
-
 </style>
 
 <body>
     <h2 id="subject"> 학생 목록</h2>
-    studentNo: <input type="text" id="no"> + 
+    studentNo: <input type="text" id="no"> +
     name: <input type="text" id="input_name"> + <br>
-    grade: <input type="text" id="input_grade"> + 
+    grade: <input type="text" id="input_grade"> +
     major: <input type="text" id="input_major"> <button id="btn">입력</button>
 
     <p id="students"></p>
     <select name="grade" id="grade" onchange="onChangeFunc()">
+        <option value="">전체</option>
         <option value="1학년">1학년</option>
         <option value="2학년">2학년</option>
         <option value="3학년">3학년</option>
@@ -41,51 +43,51 @@
     </select>
 
     <script>
+
+        jsonData = [{ "studentNo": 101, "name": "Joannes", "grade": "1학년", "major": "Java","button":"" },
+        { "studentNo": 102, "name": "Britney", "grade": "2학년", "major": "Enlish","button":"" },
+        { "studentNo": 103, "name": "Conan", "grade": "3학년", "major": "Java","button":"" },
+        { "studentNo": 104, "name": "Pauli", "grade": "1학년", "major": "DB","button":"" },
+        { "studentNo": 105, "name": "Wolfie", "grade": "2학년", "major": "Java","button":"" },
+        { "studentNo": 106, "name": "Imojean", "grade": "4학년", "major": "Math","button":""}];
+        titles = ["studentNo", "name", "grade", "major","button"];
+
         var plusfunc = function () {
-                var $table = document.getElementById("tb1")
-                var no = document.getElementById("no").value;
-                var input_name = document.getElementById("input_name").value;
-                var input_grade = document.getElementById("input_grade").value;
-                var input_major = document.getElementById("input_major").value;
+            var $table = document.getElementById("tb1")
+            var no = document.getElementById("no").value;
+            var input_name = document.getElementById("input_name").value;
+            var input_grade = document.getElementById("input_grade").value;
+            var input_major = document.getElementById("input_major").value;
 
-                var $tr = document.createElement("tr");
-                var $td = document.createElement("td");
-                var $text = document.createTextNode(no)
-                $td.appendChild($text)
-                $tr.appendChild($td)
+            var $tr = document.createElement("tr");
+            var $td = document.createElement("td");
+            var $text = document.createTextNode(no)
+            $td.appendChild($text)
+            $tr.appendChild($td)
 
-                var $td = document.createElement("td");
-                $text = document.createTextNode(input_name)
-                $td.appendChild($text)
-                $tr.appendChild($td)
+            var $td = document.createElement("td");
+            $text = document.createTextNode(input_name)
+            $td.appendChild($text)
+            $tr.appendChild($td)
 
-                $td = document.createElement("td")
-                $text = document.createTextNode(input_grade)
-                $td.appendChild($text)
-                $tr.appendChild($td)
+            $td = document.createElement("td")
+            $text = document.createTextNode(input_grade)
+            $td.appendChild($text)
+            $tr.appendChild($td)
 
 
-                $td = document.createElement("td")
-                $text = document.createTextNode(input_major)
-                $td.appendChild($text)
-                $tr.appendChild($td)
+            $td = document.createElement("td")
+            $text = document.createTextNode(input_major)
+            $td.appendChild($text)
+            $tr.appendChild($td)
 
-                $td = document.createElement("td")
-                $tr.appendChild($td);
-                $table.appendChild($tr)
-            }
-            var btn = document.getElementById("btn");
-            btn.onclick = plusfunc;
+            $td = document.createElement("td")
+            $tr.appendChild($td);
+            $table.appendChild($tr)
+        }
 
-        var jsonData = [{ "studentNo": 101, "name": "Joannes", "grade": "1학년", "major": "Java" },
-        { "studentNo": 102, "name": "Britney", "grade": "2학년", "major": "Enlish" },
-        { "studentNo": 103, "name": "Conan", "grade": "3학년", "major": "Java" },
-        { "studentNo": 104, "name": "Pauli", "grade": "1학년", "major": "DB" },
-        { "studentNo": 105, "name": "Wolfie", "grade": "2학년", "major": "Java" },
-        { "studentNo": 106, "name": "Imojean", "grade": "4학년", "major": "Math" }]
-        var titles = ["studentNo", "name", "grade", "major"];
-
-        var $table = document.createElement("table");
+        function createTable(jsonData){
+            var $table = document.createElement("table");
             $table.setAttribute("border", "1", "tb1");
             $table.setAttribute("id", "tb1");
             var $tr = document.createElement("tr");
@@ -102,38 +104,70 @@
                 for (field of titles) {
                     var $td = document.createElement("td");
                     var $text = document.createTextNode(o[field]);
-                    $td.appendChild($text);
+                    if(field == "button"){
+                        var $btn = document.createElement("input");
+                        $btn.setAttribute("type","button");
+                        $btn.setAttribute("onclick","onDeleteFunc('"+o['name']+"')");
+                        $btn.setAttribute("value","삭제");
+                        $td.appendChild($btn);
+                    }else{
+                        $td.appendChild($text);
+                    }
                     $tr.appendChild($td);
                 }
-              
+
                 $table.appendChild($tr);
 
                 $table.cellPadding = '0px';
                 $table.cellSpacing = '0px';
-                
+
             });
+                
+            var students = document.getElementById("students");
+            students.appendChild($table);
+        }
 
 
         function onChangeFunc() {
             var grade = document.getElementById("grade");
-            var filterAry = jsonData.filter(function (o, i,a) {
-                return o.grade == document.getElementById("grade").value;
-
-            });
+            var filterAry = jsonData;
+            if (grade.value != "") {
+                filterAry = jsonData.filter(function (o, i, a) {
+                    return o.grade == document.getElementById("grade").value;
+                });
+            }
             var $students = document.getElementById("students");
             var cnt = $students.children.length;
             for (var i = 0; i < cnt; i++) {
                 $students.removeChild($students.firstChild);
             }
-            filterAry.forEach(function (a) {
+            /*filterAry.forEach(function (a) {
                 var $text = document.createTextNode(a.name + ",  " + a.grade + ",  " + a.major);
-                    var $li = document.createElement("li");
-                    $li.appendChild($text);
-                    $students.appendChild($li);
+                var $li = document.createElement("li");
+                $li.appendChild($text);
+                $students.appendChild($li);
             });
+            */
+           createTable(filterAry);
         }
-        var students = document.getElementById("students");
-        students.appendChild($table);
+        function onDeleteFunc(value) {
+            filterAry = jsonData.filter(function (o, i, a) {
+                return o.name != value;
+            });
+
+            jsonData = filterAry;
+            
+            var $students = document.getElementById("students");
+            var cnt = $students.children.length;
+            for (var i = 0; i < cnt; i++) {
+                $students.removeChild($students.firstChild);
+            }
+           createTable(filterAry);
+        }
+        
+        createTable(jsonData);
+        var btn = document.getElementById("btn");
+        btn.onclick = plusfunc;
 
     </script>
 </body>

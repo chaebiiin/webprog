@@ -17,12 +17,18 @@
         <p class="name">홍길동2</p>
     </div>
     <p class="name">홍길동3</p>
-    
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script>
     //풀이
+    document.getElementById('div').childNodes.forEach(function(o){
+        if(o.innerText=="홍길동1" || o.innerText == "홍길동2")console.log(o.innerText);
+    });
+    $('div > .name').each(function(){
+        console.log($(this).text());
+    });
     var ps = document.querySelectorAll('div > .name');
     ps.forEach(function(o,i,a){
-        console.log(o);
+        // console.log(o);
     });
     // var result = document.getElementsByClassName("name").parentNode;
     // console.log(result);
