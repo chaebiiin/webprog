@@ -9,15 +9,19 @@
     <script src="menu.js"></script>
 </head>
 <style>
-      * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
     }
 
     .menu-box {
-      width: 1090px;
-      margin: 0 auto;
+        width: 1090px;
+        margin: 0 auto;
+        position: relative;
+        font-family: -webkit-pictograph;
+        font-size: larger;
+    
     }
 
     .show {
@@ -27,24 +31,62 @@
         text-align: center;
         border: 1px solid black;
         margin: inherit;
-       
-       
+
+
     }
+
     #show2 {
-      margin: 0 20px;
+        margin: 0 20px;
     }
 
     table {
-      margin: 0 auto;
+        margin: 0 auto;
+    }
+
+    #btn1 {
+        position: absolute;
+        left: 100px;
+        top: 280px;
+    }
+
+    #btn2 {
+        position: absolute;
+        left: 470px;
+        top: 280px;
+    }
+
+    #btn3 {
+        position: absolute;
+        left: 835px;
+        top: 280px;
     }
 </style>
 
 <body>
     <h1 id="show" align="center">Menu</h1>
     <div class="menu-box">
-        <div id="show1" class="show">Coffee</div>
-        <div id="show2" class="show">Tea</div>
-        <div id="show3" class="show">Dessert</div>
+        <div id="show1" class="show">Coffee
+            <div id="btn1">
+                <button class="add">ADD</button>
+                <button class="modify">MODIFY</button>
+                <button class="del" onclick="deleteFunc()">DELETE</button>
+            </div>
+        </div>
+
+        <div id="show2" class="show">Tea
+            <div id="btn2">
+                <button class="add">ADD</button>
+                <button class="modify">MODIFY</button>
+                <button class="del">DELETE</button>
+            </div>
+        </div>
+        <div id="show3" class="show">Dessert
+            <div id="btn3">
+                <button class="add">ADD</button>
+                <button class="modify">MODIFY</button>
+                <button class="del">DELETE</button>
+            </div>
+        </div>
     </div>
 
 </body>
