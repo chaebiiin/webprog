@@ -9,11 +9,15 @@
     <script src="menu.js"></script>
 </head>
 <style>
-    body {
-        margin: 100px;
-        margin-block: inherit;
-    
+      * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
+    .menu-box {
+      width: 1090px;
+      margin: 0 auto;
     }
 
     .show {
@@ -23,28 +27,24 @@
         text-align: center;
         border: 1px solid black;
         margin: inherit;
-
+       
+       
+    }
+    #show2 {
+      margin: 0 20px;
     }
 
-    /* /* .out {
-        width: 100%;
-        text-align: center;
-    } */
-    .in{
-        display: inline-block;
-       
-    } */
+    table {
+      margin: 0 auto;
+    }
 </style>
 
 <body>
     <h1 id="show" align="center">Menu</h1>
-    <div class="out">
-        <!-- <div class="in"> -->
-            <div id="show1" class="show">Coffee</div>
-            <div id="show2" class="show">Tea</div>
-            <div id="show3" class="show">Dessert</div>
-        <!-- </div> -->
-    </div>
+    <div class="menu-box">
+        <div id="show1" class="show">Coffee</div>
+        <div id="show2" class="show">Tea</div>
+        <div id="show3" class="show">Dessert</div>
     </div>
 
 </body>

@@ -4,17 +4,17 @@ var coffeeData = [{ "no": 1, "menuName": "Americano", "type": "hot/ice", "price"
 { "no": 4, "menuName": "Cappuccino", "type": "hot/ice", "price": 5500 }]
 var coffees = ['no', 'menuName', 'type', 'price'];
 
-var teaData = [{ "no": 1, "menuName": "Peachtea", "type": "hot/ice", "price": 3000, "input": "" },
-{ "no": 2, "menuName": "Greentea", "type": "hot/ice", "price": 4100, "checkbox": "" },
-{ "no": 3, "menuName": "Milktea", "type": "hot/ice", "price": 4600, "checkbox": "" },
-{ "no": 4, "menuName": "Honeytea", "type": "hot/ice", "price": 4500, "checkbox": "" }]
-var teas = ['no', 'menuName', 'type', 'price', 'check'];
+var teaData = [{ "no": 1, "menuName": "Peachtea", "type": "hot/ice", "price": 3000},
+{ "no": 2, "menuName": "Greentea", "type": "hot/ice", "price": 4100 },
+{ "no": 3, "menuName": "Milktea", "type": "hot/ice", "price": 4600 },
+{ "no": 4, "menuName": "Honeytea", "type": "hot/ice", "price": 4500}]
+var teas = ['no', 'menuName', 'type', 'price'];
 
-var dessertData = [{ "no": 1, "menuName": "Cake", "price": 3000, "checkbox": "" },
-{ "no": 2, "menuName": "Cookie", "price": 4100, "checkbox": "" },
-{ "no": 3, "menuName": "Macaroon", "price": 4600, "checkbox": "" },
-{ "no": 4, "menuName": "HoneyBread", "price": 4500, "checkbox": "" }];
-var desserts = ['no', 'menuName', 'price', 'check'];
+var dessertData = [{ "no": 1, "menuName": "Cake", "price": 3000 },
+{ "no": 2, "menuName": "Cookie", "price": 4100},
+{ "no": 3, "menuName": "Macaroon", "price": 4600 },
+{ "no": 4, "menuName": "HoneyBread", "price": 4500 }];
+var desserts = ['no', 'menuName', 'price'];
 
 window.onload = function () {
     createCoffeeTable(coffeeData);
@@ -23,7 +23,7 @@ window.onload = function () {
 }
 
 function createCoffeeTable() {
-    var $table = $('<table />').attr({ 'border': '1', 'cellPadding': '0px', 'cellSpacing': '0px', 'style': 'margin-left: 30px;' });
+    var $table = $('<table />').attr({ 'border': '1', 'cellPadding': '0px', 'cellSpacing': '0px'});
     var $tr = $('<tr />');
     coffees.forEach(function (o, i, a) {
         $tr.append($('<th />').text(o));
@@ -45,7 +45,7 @@ function createCoffeeTable() {
     $('#show1').append($table);
 }
 function createTeaTable() {
-    var $table = $('<table />').attr({ 'border': '1', 'cellPadding': '0px', 'cellSpacing': '0px', 'style': 'margin-left: 30px;' });
+    var $table = $('<table />').attr({ 'border': '1', 'cellPadding': '0px', 'cellSpacing': '0px' });
     var $tr = $('<tr />');
     teas.forEach(function (o, i, a) {
         $tr.append($('<th />').text(o));
@@ -66,7 +66,7 @@ function createTeaTable() {
     $('#show2').append($table);
 }
 function createDessertTable() {
-    var $table = $('<table />').attr({ 'border': '1', 'cellPadding': '0px', 'cellSpacing': '0px', 'style': 'margin-left: 40px;' });
+    var $table = $('<table />').attr({ 'border': '1', 'cellPadding': '0px', 'cellSpacing': '0px' });
     var $tr = $('<tr />');
     desserts.forEach(function (o, i, a) {
         $tr.append($('<th />').text(o));
