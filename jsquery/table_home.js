@@ -20,6 +20,7 @@ window.onload=function(){
     createTable(jsonData);
    // console.log($('#show').text());
 }
+
 function createTable(jsonData){
     var $table = $('<table />').attr({'border': '1','cellPadding': '0px','cellSpacing': '0px','align': 'center'});
     var $tr = $('<tr />');

@@ -20,13 +20,14 @@ $(document).ready(function () {
     });
     $table.append($tr);
     //데이터 영역
+
     jsonData.forEach(function (o) {
         $tr = $('<tr />').mouseenter(mouseenterfunc)
                         .mouseout(mouseoutFunc);
         titles.forEach(function (f) { //필드
             $tr.append($('<td />').text(o[f]));
         });
-        $tr.append($('<td />').append($('<button>확인</button>'))).click(onclickFunc);
+        $tr.append($('<td />').append($('<button />').text('확인').click(onclickFunc)));
 
         $table.append($tr);
 

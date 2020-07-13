@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,38 +9,44 @@
     <script src="menu.js"></script>
 </head>
 <style>
-#show1{
-    float: left;
-    width: 300px;
-    height: 350px;
-    margin: inherit;
-    text-align: center;
-    border: 1px solid black;
-}
-#show2{
-    float: left;
-    width: 300px;
-    height: 350px;
-    margin: inherit;
-    text-align: center;
-    border: 1px solid black;
-}
-#show3{
-    float: left;
-    width: 300px;
-    height: 350px;
-    margin: inherit;
-    text-align: center;
-    border: 1px solid black;
-}
+    body {
+        margin: 100px;
+        margin-block: inherit;
+    
 
+    }
+
+    .show {
+        float: left;
+        width: 350px;
+        height: 400px;
+        text-align: center;
+        border: 1px solid black;
+        margin: inherit;
+
+    }
+
+    /* /* .out {
+        width: 100%;
+        text-align: center;
+    } */
+    .in{
+        display: inline-block;
+       
+    } */
 </style>
+
 <body>
-    <p id="show">Menu
-   
-    <div id="show1" >Coffee</div> 
-    <div id="show2" >Tea</div>
-    <div id="show3" >Dessert</div>
-</p>
+    <h1 id="show" align="center">Menu</h1>
+    <div class="out">
+        <!-- <div class="in"> -->
+            <div id="show1" class="show">Coffee</div>
+            <div id="show2" class="show">Tea</div>
+            <div id="show3" class="show">Dessert</div>
+        <!-- </div> -->
+    </div>
+    </div>
+
 </body>
+
 </html>
